@@ -287,6 +287,15 @@ checkoutBtn.addEventListener("click", function () {
     addressInput.value = "";
     addressInput.classList.remove("border-red-500"); // Remover a classe de erro (se houver)
     addressWarn.classList.add("hidden"); // Esconder a mensagem de alerta
+
+    // Desbloquear os checkboxes após o envio do pedido
+    document.querySelectorAll('.complement-checkbox').forEach(checkbox => {
+        const productName = checkbox.getAttribute('data-product-name');
+        // Reabilitar os checkboxes de complementos
+        checkbox.disabled = false;
+        // Atualiza o estado dos complementos para aquele produto
+        updateComplementosState(productName);
+    });
 });
 
 // Verificar se está dentro do horário de funcionamento
