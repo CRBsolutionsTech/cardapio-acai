@@ -37,6 +37,41 @@ function updateCart() {
     saveCartToLocalStorage();
 }
 
+// Função para atualizar a interface com o estado de seleção de complementos
+function updateComplementosState(productName) {
+    const complementCheckboxes = document.querySelectorAll(`.complement-checkbox[data-product-name="${productName}"]`);
+    const selectedComplementos = document.querySelectorAll(`.complement-checkbox[data-product-name="${productName}"]:checked`);
+    const selectedCount = selectedComplementos.length;
+
+    // Se atingiu o limite de 3 complementos, desabilitar os checkboxes restantes
+    if (selectedCount >= 3) {
+        complementCheckboxes.forEach(checkbox => {
+            if (!checkbox.checked) {
+                checkbox.disabled = true;  // Desabilita checkboxes não selecionados
+            }
+        });
+    } else {
+        // Caso contrário, habilita todos os checkboxes novamente
+        complementCheckboxes.forEach(checkbox => {
+            checkbox.disabled = false;
+        });
+    }
+}
+
+// Adicionar evento de 'change' para monitorar mudanças nos checkboxes para cada produto
+document.querySelectorAll('.complement-checkbox').forEach(checkbox => {
+    checkbox.addEventListener('change', (event) => {
+        const productName = event.target.getAttribute('data-product-name');
+        updateComplementosState(productName);
+    });
+});
+
+// Inicializa o estado dos checkboxes quando a página carrega
+document.querySelectorAll('.complement-checkbox').forEach(checkbox => {
+    const productName = checkbox.getAttribute('data-product-name');
+    updateComplementosState(productName);
+});
+
 // Abrir o modal do carrinho
 cartBtn.addEventListener("click", function () {
     updateCartModal();
@@ -170,7 +205,6 @@ function removeItemCart(name) {
 // Função para capturar os complementos selecionados no HTML para cada produto
 function getSelectedComplementos(productName) {
     const complementos = [];
-    // Alterado para usar o data-name do botão para localizar os complementos
     const complementosInputs = document.querySelectorAll(`input[data-product-name="${productName}"]:checked`);
     complementosInputs.forEach(input => complementos.push(input.value));
     return complementos;  // Retorna os complementos selecionados
