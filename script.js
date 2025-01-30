@@ -10,13 +10,12 @@ const addressInput = document.getElementById("address");
 const addressWarn = document.getElementById("address-warning");
 
 let cart = [];
-const CACHE_EXPIRATION_TIME = 60 * 60 * 1000; // 1 hora em milissegundos
 
 // Função para salvar o carrinho no localStorage
 function saveCartToLocalStorage() {
     const cartData = {
         cart,
-        timestamp: Date.now() // Salva o tempo em que o carrinho foi salvo
+        timestamp: Date.now()
     };
     localStorage.setItem("cart", JSON.stringify(cartData));
 }
@@ -24,12 +23,11 @@ function saveCartToLocalStorage() {
 // Função para carregar o carrinho do localStorage
 function loadCartFromLocalStorage() {
     const cartData = JSON.parse(localStorage.getItem("cart"));
-
-    if (cartData && (Date.now() - cartData.timestamp) < CACHE_EXPIRATION_TIME) {
-        cart = cartData.cart; // Se o carrinho não expirou, carrega ele
+    if (cartData && (Date.now() - cartData.timestamp) < 60 * 60 * 1000) {
+        cart = cartData.cart;
     } else {
-        cart = []; // Caso o carrinho tenha expirado ou não exista
-        localStorage.removeItem("cart"); // Limpa o localStorage caso o carrinho tenha expirado
+        cart = [];
+        localStorage.removeItem("cart");
     }
 }
 
@@ -64,15 +62,30 @@ menu.addEventListener("click", function (event) {
     if (parentButton) {
         const name = parentButton.getAttribute("data-name");
         const price = parseFloat(parentButton.getAttribute("data-price"));
-
-        addToCart(name, price);
+        
+        // Obter os complementos selecionados para este item
+        const complementos = getSelectedComplementos(name);
+        addToCart(name, price, complementos);
     }
 });
 
 // Função para Adicionar no carrinho
-function addToCart(name, price) {
+function addToCart(name, price, complementos = []) {
     const existeItem = cart.find(item => item.name === name);
 
+    if (existeItem) {
+        existeItem.quantity += 1;
+        existeItem.complementos = complementos;  // Atualizar complementos
+    } else {
+        cart.push({
+            name,
+            price,
+            quantity: 1,
+            complementos
+        });
+    }
+
+    // Alerta de item adicionado ao carrinho
     Toastify({
         text: "ITEM ADICIONADO AO CARRINHO",
         duration: 3000,
@@ -85,20 +98,10 @@ function addToCart(name, price) {
         },
     }).showToast();
 
-    if (existeItem) {
-        existeItem.quantity += 1;
-    } else {
-        cart.push({
-            name,
-            price,
-            quantity: 1,
-        });
-    }
-
     updateCart(); // Atualiza a interface e o localStorage
 }
 
-// Atualiza o carrinho no modal
+// Atualiza o carrinho no modal (com complementos)
 function updateCartModal() {
     cartItemsContainer.innerHTML = "";
     let total = 0;
@@ -107,6 +110,7 @@ function updateCartModal() {
         const cartItemElement = document.createElement("div");
         cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col");
 
+        // Exibe os dados no modal, com os complementos incluídos
         cartItemElement.innerHTML = `
             <div class="flex items-center justify-between">
                 <div>
@@ -118,6 +122,11 @@ function updateCartModal() {
                 <button class="remove-from-cart-btn cursor-pointer" data-name="${item.name}">
                     Remover
                 </button>
+            </div>
+
+            <div>
+                <!-- Exibir complementos no modal -->
+                ${item.complementos.length > 0 ? `<p>Complementos: ${item.complementos.join(", ")}</p>` : ""}
             </div>
         `;
 
@@ -158,22 +167,13 @@ function removeItemCart(name) {
     }
 }
 
-// Lidar com a entrada de endereço
-addressInput.addEventListener("input", function (event) {
-    let inputValue = event.target.value;
-
-    if (inputValue !== "") {
-        addressInput.classList.remove("border-red-500");
-        addressWarn.classList.add("hidden");
-    }
-});
-
-// Inicializando o contador de pedidos
-let orderNumber = 1;
-
-// Função para incrementar o número do pedido
-function incrementOrderNumber() {
-    orderNumber++;
+// Função para capturar os complementos selecionados no HTML para cada produto
+function getSelectedComplementos(productName) {
+    const complementos = [];
+    // Alterado para usar o data-name do botão para localizar os complementos
+    const complementosInputs = document.querySelectorAll(`input[data-product-name="${productName}"]:checked`);
+    complementosInputs.forEach(input => complementos.push(input.value));
+    return complementos;  // Retorna os complementos selecionados
 }
 
 // Finalizar Pedido
@@ -181,7 +181,7 @@ checkoutBtn.addEventListener("click", function () {
     const isOpen = checkRestaurantOpen();
     if (!isOpen) {
         Toastify({
-            text: "OPS... O REATURANTE ESTA FECHADO",
+            text: "OPS... O RESTAURANTE ESTÁ FECHADO",
             duration: 3000,
             close: true,
             gravity: "top",
@@ -203,25 +203,22 @@ checkoutBtn.addEventListener("click", function () {
         return;
     }
 
-
-    if (cart.length === 0) return;
-
-    if (addressInput.value === "") {
-        addressWarn.classList.remove("hidden");
-        addressInput.classList.add("border-red-500");
-        return;
-    }
-
     // Enviar o pedido para a API do WhatsApp
     const totalPrice = cart.reduce((total, item) => total + (item.quantity * item.price), 0);
 
     const cartItems = cart.map((item) => {
+        let complementosMessage = "";
+        if (item.complementos.length > 0) {
+            complementosMessage = ` Complementos: ${item.complementos.join(", ")}`;
+        }
+
         return (
             ` 
         Pedido: ${item.name} 
         Quantidade: (${item.quantity}) 
         Preço: R$${item.price}
         Total: R$${item.quantity * item.price}
+        ${complementosMessage}
          `
         );
     }).join(" "); // Substituir quebras de linha por %0A
@@ -229,7 +226,7 @@ checkoutBtn.addEventListener("click", function () {
     const address = encodeURIComponent(addressInput.value); // Codificar o endereço
 
     const message = encodeURIComponent(cartItems); // Codificar os itens do carrinho
-    const phone = "5511991941575"; // Número de telefone
+    const phone = "5511991941575"; // Número de telefone (11) 99194-1575
 
     const totalMessage = `%0AValor Total: *R$ ${totalPrice.toFixed(2)}*%0A`; // Formatando o valor total
 
@@ -237,17 +234,14 @@ checkoutBtn.addEventListener("click", function () {
     const paymentMessage = `*Forma de Pagamento:* (${paymentMethod})%0A`;
 
     const deliveryMessage = `%0A(Estimativa de entrega: *entre 30~40 minutos*)`; // Estimativa de Entrega
-    const deliveryFeeMessage = `%0A*Delivery* (taxa de entrega: *R$ 4,00*)`; // Taxa de Entrega
-    //const orderNumberMessage = `%0A*Número do Pedido:* #${orderNumber}`; // Número do pedido
+    const deliveryFeeMessage = `%0A*Delivery* (taxa de entrega: *R$ 5,00*)`; // Taxa de Entrega
 
     // Abrir o WhatsApp com a mensagem formatada
-    window.open(`https://wa.me/${phone}?text=${message}${totalMessage}%0A${paymentMessage}${deliveryFeeMessage}%0A*Endereço:* ${address}%0A${deliveryMessage}`, "_blank");
+    window.open(`https://wa.me/${phone}?text=${message}%0A${totalMessage}%0A${paymentMessage}${deliveryFeeMessage}%0A*Endereço:* ${address}%0A${deliveryMessage}`, "_blank");
 
     cart = [];
     localStorage.removeItem("cart"); // Limpar o cache do carrinho
     updateCartModal();
-
-    incrementOrderNumber(); // Incrementa o número do pedido
 });
 
 // Verificar se está dentro do horário de funcionamento
