@@ -242,6 +242,17 @@ checkoutBtn.addEventListener("click", function () {
     cart = [];
     localStorage.removeItem("cart"); // Limpar o cache do carrinho
     updateCartModal();
+
+    // Limpar os complementos no HTML
+    const complementosInputs = document.querySelectorAll("input[type='checkbox']");
+    complementosInputs.forEach(input => {
+        input.checked = false; // Desmarcar todos os complementos
+    });
+
+    // Limpar o campo de endereço
+    addressInput.value = "";
+    addressInput.classList.remove("border-red-500"); // Remover a classe de erro (se houver)
+    addressWarn.classList.add("hidden"); // Esconder a mensagem de alerta
 });
 
 // Verificar se está dentro do horário de funcionamento
