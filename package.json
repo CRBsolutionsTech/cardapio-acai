@@ -1,0 +1,16 @@
+{
+  "name": "cardapio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./styles/style.css -o ./styles/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cantinho Gourmet" />
+    <meta property="og:image" content="https://cardapio-digital-zeta.vercel.app/assets/logo.jpeg" />
+    <meta property="og:description" content="A melhor pastelaria da região!!!" />
+    <meta property="og:site_name" content="cantinhogourmet" />
+
+    <link href="./styles/output.css" rel="stylesheet" />
+
+    <title>Açai & Tapioca</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="w-full h-[420px] bg-zinc-700 bg-home bg-cover bg-center">
+        <div class="w-full h-full flex flex-col justify-center items-center">
+            <img src="./assets/logo.png" alt="Logo Cantinho Gourmet"
+                class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200" />
+            <h1 class="text-4xl mt-4 mb-2 font-bold text-white">
+                Açaí & Tapioca
+            </h1>
+
+            <span class="text-3xl mt-4 mb-2 font-bold text-white">(11) 99194-1575</span>
+
+            <div class="bg-green-600 px-4 py-1 rounded-lg mt-5" id="date-span">
+                <span class="text-white font-medium">Seg a Dom - 19:00 as 23:00</span>
+            </div>
+        </div>
+    </header>
+    <!-- FIM HEADER -->
+
+    <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6">
+        Conheça Nosso Menu
+    </h2>
+
+    <div class="mx-auto max-w-7xl px-2 my-2">
+        <h2 class="font-bold text-3xl">
+            Tapiocas Doces
+        </h2>
+    </div>
+
+    <!-- INICIO MENU -->
+    <div id="menu">
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-banana-com-canela.jpg" alt="Tapioca Banana Canela"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Banana com Canela</p>
+                    <p class="text-sm">Tapioca de Banana com Canela</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 12,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Banana com Canela" data-price="12">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-banana-com-canela.jpg" alt="Tapioca Banana Doce Leite"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Banana com Doce de Leite</p>
+                    <p class="text-sm">Tapioca de Banana com Doce de Leite</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 14,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Banana com Doce de Leite" data-price="14">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-banana-com-canela.jpg" alt="Tapioca Banana Leite Condensado"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Banana com Leite Condensado</p>
+                    <p class="text-sm">Tapioca de Banana com Leite Condensado</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 14,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Banana com Leite Condensado" data-price="14">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-confeti.JPG" alt="Tapioca Confeti"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Confeti</p>
+                    <p class="text-sm">Tapioca de Confeti</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 12,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Confeti" data-price="12">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-doce-de-leite.JPG" alt="Tapioca Doce Leite"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Doce de Leite</p>
+                    <p class="text-sm">Tapioca de Doce de Leite</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 12,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Doce de Leite" data-price="12">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-doce-de-leite.JPG" alt="Tapioca Doce Leite Amendoim"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Doce de Leite com Amendoim</p>
+                    <p class="text-sm">Tapioca de Doce de Leite com Amendoim</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 14,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Doce de Leite com Amendoim" data-price="14">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-doce-de-leite.JPG" alt="Tapioca Doce Leite Coco"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Doce de Leite com Coco</p>
+                    <p class="text-sm">Tapioca de Doce de Leite com Coco</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 14,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Doce de Leite com Coco" data-price="14">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-leite-condensado.JPG" alt="Tapioca Leite Condensado Amendoim"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Leite Condensado com Amendoim</p>
+                    <p class="text-sm">Tapioca de Leite Condensado com Amendoim</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 14,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Leite Condensado com Amendoim" data-price="14">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-leite-condensado.JPG" alt="Tapioca Leite Condensado Coco"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Leite Condensado com Coco</p>
+                    <p class="text-sm">Tapioca de Leite Condensado com Coco</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 14,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Leite Condensado com Coco" data-price="14">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-leite-condensado.JPG" alt="Tapioca Leite Condensado Granola"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Leite Condensado com Granola</p>
+                    <p class="text-sm">Tapioca de Leite Condensado com Granola</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 14,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Leite Condensado com Granola" data-price="14">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2">
+                <img src="./assets/Tapioca-de-leite-condensado.JPG" alt="Tapioca Leite Condensado Paçoca"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Tapioca de Leite Condensado com Paçoca</p>
+                    <p class="text-sm">Tapioca de Leite Condensado com Paçoca</p>
+                    <p class="text-sm">(Serve até 1 pessoa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 14,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Tapioca de Leite Condensado com Paçoca" data-price="14">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+
+        </main>
+
+        <div class="mx-auto max-w-7xl px-2 my-2">
+            <h2 class="font-bold text-3xl">
+                Açaí
+            </h2>
+        </div>
+
+        <!-- AÇAÍ ITEM -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16"
+            id="menu">
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2 w-full">
+                <img src="./assets/açai_copo.jpg" alt="Açai Copo"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Açaí no Copo</p>
+                    <p class="text-sm">Copo de 300ml com açaí + 3 complementos a sua escolha</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 16,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Açai no Copo 300ml" data-price="16">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2 w-full">
+                <img src="./assets/açai_marmita.jpg" alt="Açai Marmita"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Açaí na Marmita - Pequeno</p>
+                    <p class="text-sm">Açaí servido em marmita de isopor de hamburguer nº 2, que garante a conservação
+                        da temperatura + 3 acompanhamentos a sua escolha</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 20,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Batata Frita Gourmet" data-price="20">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2 w-full">
+                <img src="./assets/açai_pote_240ml.jpg" alt="Açai Pote 240ml"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Açaí no Pote - 240ml</p>
+                    <p class="text-sm">Açaí servido em pote térmico que garante a conservação da temperatura + 3
+                        acompanhamentos a sua escolha</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 17,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Açaí no Pote - 240ml" data-price="17">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2 w-full">
+                <img src="./assets/açai_pote_240ml.jpg" alt="Açai Pote 360ml"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Açaí no Pote - 360ml</p>
+                    <p class="text-sm">Açaí servido em pote térmico que garante a conservação da temperatura + 3
+                        acompanhamentos a sua escolha</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 21,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Açaí no Pote - 360ml" data-price="21">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2 w-full">
+                <img src="./assets/açai_pote_240ml.jpg" alt="Açai Pote 480ml"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Açaí no Pote - 480ml</p>
+                    <p class="text-sm">Açaí servido em pote térmico que garante a conservação da temperatura + 3
+                        acompanhamentos a sua escolha</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 25,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Açaí no Pote - 480ml" data-price="25">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2 w-full">
+                <img src="./assets/açai_vitamina.jpg" alt="Açai Vitamina"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Vitamina de Açaí - 300ml</p>
+                    <p class="text-sm">Garrafa de 300ml com Açaí + 1 acompanhamento a sua escolha</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 16,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Vitamina de Açaí - 300ml" data-price="16">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+        </div>
+        <!-- FIM AÇAÍ ITEM -->
+
+
+
+        <div class="mx-auto max-w-7xl px-2 my-2">
+            <h2 class="font-bold text-3xl">
+                Sucos (Polpa)
+            </h2>
+        </div>
+
+        <!-- BEBIDAS ITEM -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16"
+            id="menu">
+
+            <!-- PRODUTO ITEM -->
+            <div class="flex px-2 gap-2 w-full">
+                <img src="./assets/logo.png" alt="Suco Abacaxi 300ml"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Suco de Abacaxi - 300ml (Polpa)</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-3">
+                        <p class="font-bold text-lg">R$ 7,00</p>
+                        <button class="bg-gray-900 px-5 rounded add-to-cart-btn cursor-pointer"
+                            data-name="Suco de Abacaxi - 300ml (Polpa)" data-price="7">
+                            <i class="fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM PRODUTO ITEM -->
+
+
+
+        </div>
+        <!-- FIM BEBIDAS ITEM -->
+
+        <div class="mx-auto max-w-7xl px-2 my-2">
+            <h2 class="font-bold text-3xl">
+                Redes Sociais
+            </h2>
+        </div>
+
+        <!-- REDES SOCIAIS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16"
+            id="menu">
+
+            <!-- INSTAGRAM -->
+            <div class="flex px-2 gap-2 w-full">
+                <img src="./assets/instagram.png" alt="Instagram"
+                    class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-3 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">@cantinhoogourmet_</p>
+
+                </div>
+            </div>
+            <!-- INSTAGRAM -->
+        </div>
+        <!-- REDES SOCIAIS -->
+
+        <p class="text-2xl md:text-2xl font-bold text-center mt-9 mb-6">
+            * Aceitamos Todos os Cartões e Pix
+        </p>
+
+        <!-- CARTÕES -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16"
+            id="menu">
+        </div>
+        <!-- CARTÕES -->
+    </div>
+    <!-- FIM MENU -->
+
+    <!-- MODAL CART -->
+    <div class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden" id="cart-modal">
+
+        <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+            <h2 class="text-center font-bold text-2xl mb-2">Meu Carrinho</h2>
+
+            <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
+
+            <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
+
+            <br>
+            <div>
+                <label class="font-bold" for="payment-method">Forma de Pagamento:</label>
+                <select id="payment-method">
+                    <option value="Crédito">Cartão de Crédito</option>
+                    <option value="Débito">Cartão de Débito</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                </select>
+            </div>
+
+
+            <p class="font-bold mt-4">Endereço de Entrega:</p>
+            <input type="text" placeholder="Digite seu endereço completo..." id="address"
+                class="w-full border-2 p-1 rounded my-1" />
+
+            <p class="text-red-500 hidden" id="address-warning">Digite seu endereço completo!</p>
+
+            <div class="flex items-center justify-between mt-5 w-full">
+                <button class="cursor-pointer" id="close-modal-btn">Fechar</button>
+                <button id="checkout-btn" class="bg-green-500 text-white px-4 py-1 rounded cursor-pointer">Finalizar
+                    Pedido</button>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- FIM MODAL CART -->
+
+    <!-- BUTTON CART FOOTER -->
+    <footer class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center">
+        <button class="flex items-center gap-2 text-white font-bold cursor-pointer" id="cart-btn">
+            (<span id="cart-count">0</span>)
+            Meu carrinho
+            <i class="fa fa-cart-plus text-lg text-white"></i>
+        </button>
+    </footer>
+    <!-- FIM BUTTON CART FOOTER -->
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
