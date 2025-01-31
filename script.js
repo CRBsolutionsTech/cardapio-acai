@@ -97,7 +97,7 @@ menu.addEventListener("click", function (event) {
     if (parentButton) {
         const name = parentButton.getAttribute("data-name");
         const price = parseFloat(parentButton.getAttribute("data-price"));
-        
+
         // Obter os complementos selecionados para este item
         const complementos = getSelectedComplementos(name);
         addToCart(name, price, complementos);
@@ -237,6 +237,9 @@ checkoutBtn.addEventListener("click", function () {
         return;
     }
 
+    // Gerar número aleatório para o pedido
+    const orderNumber = Math.floor(1000 + Math.random() * 9000); // Número de 4 dígitos
+
     // Enviar o pedido para a API do WhatsApp
     const totalPrice = cart.reduce((total, item) => total + (item.quantity * item.price), 0);
 
@@ -269,9 +272,10 @@ checkoutBtn.addEventListener("click", function () {
 
     const deliveryMessage = `%0A(Estimativa de entrega: *entre 30~40 minutos*)`; // Estimativa de Entrega
     const deliveryFeeMessage = `%0A*Delivery* (taxa de entrega: *R$ 5,00*)`; // Taxa de Entrega
+    const orderNumberMessage = `%0A*Número do Pedido:* #${orderNumber}`; // Número do pedido
 
     // Abrir o WhatsApp com a mensagem formatada
-    window.open(`https://wa.me/${phone}?text=${message}%0A${totalMessage}%0A${paymentMessage}${deliveryFeeMessage}%0A*Endereço:* ${address}%0A${deliveryMessage}`, "_blank");
+    window.open(`https://wa.me/${phone}?text=${message}${totalMessage}${paymentMessage}${deliveryFeeMessage}%0A*Endereço:* ${address}%0A${deliveryMessage}%0A*Número do Pedido:* ${orderNumber}`, "_blank");
 
     cart = [];
     localStorage.removeItem("cart"); // Limpar o cache do carrinho
