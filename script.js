@@ -157,7 +157,7 @@ function updateCartModal() {
 
             <div>
                 <!-- Exibir complementos no modal -->
-                ${item.complementos.length > 0 ? `<p>Complementos: ${item.complementos.join(", ")}</p>` : ""}
+                <p>${item.complementos.length > 0 ? `Complementos: ${item.complementos.join(", ")}` : "Nenhum complemento adicionado"}</p>
             </div>
         `;
 
