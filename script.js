@@ -104,21 +104,17 @@ menu.addEventListener("click", function (event) {
     }
 });
 
-// Função para Adicionar no carrinho
-function addToCart(name, price, complementos = []) {
-    const existeItem = cart.find(item => item.name === name);
+// Função para Adicionar no carrinho (alateração de complementos)
 
-    if (existeItem) {
-        existeItem.quantity += 1;
-        existeItem.complementos = complementos;  // Atualizar complementos
-    } else {
-        cart.push({
-            name,
-            price,
-            quantity: 1,
-            complementos
-        });
-    }
+function addToCart(name, price, complementos = []) {
+    // Adiciona um novo item ao carrinho, independentemente de já existir
+    cart.push({
+        name,
+        price,
+        quantity: 1, // Cada adição é considerada uma nova quantidade
+        complementos: [...complementos] // Cria uma nova lista de complementos
+    });
+
 
     // Alerta de item adicionado ao carrinho
     Toastify({
@@ -250,9 +246,9 @@ checkoutBtn.addEventListener("click", function () {
         }
 
         return (
-            ` 
-        Pedido: ${item.name} 
-        Quantidade: (${item.quantity}) 
+            `
+        Pedido: ${item.name}
+        Quantidade: (${item.quantity})
         Preço: R$${item.price}
         Total: R$${item.quantity * item.price}
         ${complementosMessage}
